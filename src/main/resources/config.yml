@@ -1,0 +1,129 @@
+# yayk SMP Configuration
+
+# Resource Pack Settings
+# Choose between local hosting (built-in HTTP server) or external URL
+resource-pack:
+  enabled: true
+
+  # Hosting mode: "local" or "external"
+  # local - Uses built-in HTTP server to host from server root directory
+  # external - Uses URL from external host (GitHub, Dropbox, etc.)
+  hosting-mode: "external"
+
+  # Local hosting settings (when hosting-mode is "local")
+  local-hosting:
+    port: 8080  # Port for HTTP server
+    filename: "YaykSMP_ResourcePack.zip"  # File must be in server root directory
+    ip: "auto"  # Server IP for resource pack URL. Use "auto" to detect, or specify IP/domain
+
+  # External hosting settings (when hosting-mode is "external")
+  url: "https://github.com/DoeniApps/YaykSMP/raw/main/YaykSMP_ResourcePack.zip"
+
+  force: true  # Kick players who decline the resource pack
+  prompt: "§6§lYaykSMP Resource Pack\n§7Required for custom logo display"
+
+# Starting balance for new players
+starting-balance: 0
+
+# Currency symbol
+currency-symbol: "$"
+
+# Show item values in inventory lore
+show-item-values: true
+
+# Shop configuration with categories
+shop:
+  title: "Shop"
+  categories:
+    gear:
+      name: "Gear"
+      icon: "TOTEM_OF_UNDYING"
+      slot: 11
+      items:
+        - "OBSIDIAN:16:160"
+        - "GLOWSTONE:16:120"
+        - "TOTEM_OF_UNDYING:1:200"
+        - "ENDER_PEARL:16:240"
+        - "GOLDEN_APPLE:8:320"
+        - "EXPERIENCE_BOTTLE:16:200"
+    redstone:
+      name: "Redstone"
+      icon: "REDSTONE"
+      slot: 13
+      items:
+        - "REDSTONE:64:160"
+        - "REPEATER:16:100"
+        - "COMPARATOR:16:100"
+        - "REDSTONE_TORCH:32:80"
+        - "REDSTONE_LAMP:16:120"
+        - "PISTON:16:140"
+        - "STICKY_PISTON:16:160"
+        - "OBSERVER:16:140"
+        - "HOPPER:8:200"
+        - "DROPPER:16:100"
+        - "DISPENSER:16:120"
+        - "TRIPWIRE_HOOK:16:80"
+        - "TARGET:16:100"
+    blocks:
+      name: "Blocks"
+      icon: "GRASS_BLOCK"
+      slot: 15
+      items:
+        - "GRASS_BLOCK:64:120"
+        - "DIRT:64:60"
+        - "STONE:64:80"
+        - "COBBLESTONE:64:70"
+        - "GLASS:64:160"
+        - "SAND:64:100"
+        - "GRAVEL:64:80"
+        - "END_STONE:64:200"
+    diamond:
+      name: "Spawner Shop"
+      icon: "DIAMOND"
+      slot: 4
+      items: []
+
+# Home System Configuration
+homes:
+  # Cost in money to set a home
+  set-cost: 1000
+  # Percentage of set cost refunded when deleting a home (0-100)
+  delete-refund-percentage: 50
+
+# Chat Tag System
+# Format: <color code + tag text + reset code>
+# Color codes: &c (red), &6 (gold), &e (yellow), &a (green), &b (aqua), &d (pink), &5 (purple), &f (white)
+# Priority determines which tag shows when conflicts arise (higher = more important)
+tags:
+  owner:
+    display: "&4[OWNER]&r"
+    priority: 100
+  admin:
+    display: "&c[ADMIN]&r"
+    priority: 90
+  mod:
+    display: "&6[MOD]&r"
+    priority: 80
+  helper:
+    display: "&e[HELPER]&r"
+    priority: 70
+  vip:
+    display: "&d[VIP]&r"
+    priority: 60
+  member:
+    display: "&7[MEMBER]&r"
+    priority: 10
+
+# Anti-Cheat System
+# Detects and prevents common cheats
+anti-cheat:
+  enabled: true
+  # Fly detection - prevents flying in survival without permission
+  fly-detection:
+    enabled: true
+    max-violations: 3  # Kicks after this many violations
+  # Auto-totem detection - detects automated totem usage
+  auto-totem-detection:
+    enabled: true
+    min-reaction-time-ms: 20  # Minimum human reaction time in milliseconds
+    max-violations: 3  # Kicks after this many violations
